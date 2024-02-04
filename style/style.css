@@ -1,0 +1,846 @@
+/**
+* ! Universal styling
+**/
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+:root {
+    --Orange: hsl(26, 100%, 55%);
+    --PaleOrange: hsl(25, 100%, 94%);
+    --veryDarkBlue: hsl(220, 13%, 13%);
+    --darkGrayishBlue: hsl(219, 9%, 45%);
+    --grayishblue: hsl(220, 14%, 75%);
+    --lightGrayishBlue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    --Black: hsl(0, 0%, 0%);
+}
+
+body {
+    font-size: 62.5%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* background-color: hsla(0, 0%, 0%, 0.747); */
+    background-color: var(--White);
+    overflow-x: hidden;
+}
+
+/**
+* ! Navigtion styling
+**/
+
+.navBar {
+    background-color: var(--White);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    z-index: 9;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 1rem;
+}
+.logo_menubars img[src*="images/logo.svg"] {
+    padding-left: 1rem;
+    width: 9rem;
+}
+menu  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.menu_nav {
+    position: absolute;
+    top: -1.5rem;
+    left: -1rem;
+    width: 15rem;
+    z-index: 10;
+    height: 100vh;
+    display: none;
+    background-color: var(--White);
+}
+.menu_nav ul {
+    list-style-type: none;
+    padding-top: 1rem;
+}
+.menu_nav ul li {
+    padding: 1rem 1rem;
+}
+.menu_nav ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--Black);
+    cursor: pointer;
+}
+.menu_nav .close {
+    padding: 1.65rem 1rem;
+    display: block;
+}
+
+.cart_profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.cart_profile .cart {
+    position: relative;
+    cursor: pointer;
+}
+.cart .cartCount {
+    background-color: var(--Orange);
+    color: var(--White);
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 25px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    right: -1rem;
+    bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+}
+.cart_profile .profile {
+    padding-left: 1.5rem;
+    cursor: pointer;
+}
+.profile img {
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid var(--Orange);
+    border-radius: 2rem;
+}
+/**
+* !This is a cartbox to contain our item in the cart
+**/
+.cartBox {
+    background-color: var(--White);
+    box-shadow: 1px 1px 10px var(--grayishblue);
+    width: 100%;
+    height: 18rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    left: 0;
+    top: 5.5rem;
+    display: none;
+}
+
+/**
+* ! This option shows when the cart is empty
+**/
+.cartBox .desc {
+    padding: 1rem;
+    font-size: 1.10rem;
+    border-bottom: 0.15rem solid var(--lightGrayishBlue);
+}
+.emptyCart .message {
+    padding: 2rem;
+    font-size: 1rem;
+    color: var(--darkGrayishBlue);
+    text-align: center;
+}
+
+/**
+* ! This option shows when the cart not empty
+**/
+.addedcart_message .details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addedcart_message .cartItem {
+    display: block;
+    padding: 1rem;
+}
+.cartItem img[src*="images/image-product-1-thumbnail.jpg"] {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.20rem;
+}
+.cartItem img[src*="images/icon-delete.svg"] {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+.cartItem p {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 1.5rem;
+    color: var(--grayishblue);
+}
+.cartItem span {
+    font-weight: 600;
+    color: var(--Black);
+}
+.cartItem button {
+    border: none;
+    background-color: var(--Orange);
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    color: var(--White);
+}
+/**
+* ! CartBox styling end
+**/
+/**
+* ! End navigation bar styling
+**/
+
+
+/**
+* ! Main container styling start
+**/
+
+.container {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    place-items: center;
+   
+}
+
+.product_container {
+    display: none;
+}
+.thumbnail_img_gallary {
+    display: none;
+}
+.rowContainer {
+    display: none;
+}
+/* .galleryModal {
+    
+} */
+.mySlide img {
+    width: 100%;
+    height: 100%;
+    padding-top: 4rem;
+}
+
+.prev_next {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close {
+    display: none;
+}
+
+
+/**
+* ! The preview and next slide images 
+* ! when cliked right or left 
+**/
+.preview, .next {
+    background-color: var(--White);
+    border-radius: 50px;
+    position: relative;
+    bottom: 200px;
+    width: 50px;
+    height: 50px;
+    padding: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition:  .4s ease-in;
+}
+.preview {
+    left: 0.5rem;
+}
+.next {
+    right: 0.75rem;
+}
+.preview:hover {
+    background: var(--Orange);
+    transform: translatex(-0.25rem);
+}
+.next:hover {
+    background: var(--Orange);
+    transform: translatex(0.25rem);
+}
+/**
+* ! End preview and next styling 
+**/
+
+
+.product_details {
+    margin: 0 1rem;
+    line-height: 1.5;
+}
+.product_details h1 {
+    color: var(--Orange);
+    font-size: 1.2rem;
+}
+.product_details h2 {
+    color: var(--Black);
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    line-height: 1.3;
+}
+.product_details p {
+    color: var(--darkGrayishBlue);
+    font-size: 1.1rem;
+    padding-top: 2rem;
+}
+
+.price {
+    padding-top: 1.2rem;
+}
+.price h3 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--Black);
+    font-weight: 700;
+}
+.price h3 span {
+    color: var(--Orange);
+    background-color: var(--PaleOrange);
+    font-size: 1rem;
+    padding: 0.10rem 0.5rem;
+    border-radius: 0.25rem;
+    margin-left: 0.5rem;
+}
+.price del {
+    color: var(--grayishblue);
+    font-size: 1rem;
+    font-weight: 700;
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 1rem;
+    padding: 2rem 0;
+}
+.btn_increment_decrement {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--lightGrayishBlue);
+    padding: 1rem;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+}
+.quantity {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0 3rem;
+}
+
+
+.add_cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background-color: var(--Orange);
+    padding: 1rem 1rem;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.add_cart p {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 700;
+    padding: 0 0.5rem;
+    color: var(--White);
+}
+
+ /**
+   *! @Media queries for responsiveness
+   **/
+
+
+ /**
+   *! Ipad Screen
+   **/
+@media only screen and (min-width: 768px) {
+    .cartBox {
+    width: 100%;
+    height: 30rem;
+}
+
+.cartBox .desc {
+    padding: 1rem;
+    font-size: 2rem;
+}
+
+.emptyCart .message p{
+    padding: 8rem 2rem;
+    font-size: 1.5rem;
+}
+
+.addedcart_message .details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+.cartItem img[src*="images/image-product-1-thumbnail.jpg"] {
+    width: 5rem;
+    height: 5rem;
+}
+
+.cartItem p {
+    font-size: 2.25rem;
+    padding: 2rem;
+}
+
+.cartItem img[src*="images/icon-delete.svg"] {
+    width: 2rem;
+    height: 2rem;
+}
+
+.cartItem button {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+}
+
+
+    .preview, .next {
+        position: relative;
+        bottom: 25rem;
+        width: 50px;
+        height: 50px;
+        padding: 1.8rem;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: row wrap;
+        gap: 1rem;
+        padding: 2rem 0;
+    }
+    .btn_increment_decrement {
+        padding: 1rem;
+        cursor: pointer;
+        width: 35%;
+        height: 500%;
+        border-radius: 0.5rem;
+    }
+
+    .add_cart {
+        padding: 1rem 2rem;
+        width: 60%;
+        height: 100%;
+        cursor: pointer;
+    }
+}
+
+ /**
+   *! Desktop screen
+   **/
+
+@media only screen and (min-width: 1000px) {
+
+    /**
+   *! This represent the Navigation bar and menus
+   **/
+    .navBar {
+        width: 82.5%;
+        height: 10vh;
+        margin: 0rem 10rem;
+        padding: 3.5rem 0rem;
+        border-bottom: 1px solid var(--grayishblue);
+    }
+
+
+    .logo_menubars img[src*="images/logo.svg"] {
+        padding-left: 0rem;
+    }
+    .logo_menubars img[src*="images/icon-menu.svg"] {
+        display: none;
+    }
+    menu  {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+    }
+
+    .menu_nav {
+        position: relative;
+        top: -2.5rem;
+        left: 1rem;
+        width: 0rem;
+        z-index: 0;
+        height: 0vh;
+        display: block;
+        background-color: transparent;
+    }
+    .menu_nav ul {
+        display: flex;
+        padding-top: 0rem;
+    }
+    .menu_nav ul li {
+        padding: 1rem 1rem;
+    }
+    .menu_nav ul li a {
+        position: relative;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--grayishblue);
+        cursor: pointer;
+        transition: color 0.4s ease-in-out;
+    }
+    .menu_nav ul li a::after {
+        content: "";
+        border-bottom: 0.25rem solid var(--Orange);
+        position: absolute;
+        top: 2.85rem;
+        left: 0;
+        height: 1rem;
+        width: 0;
+        transition: all .4s ease-out;
+    }
+    .menu_nav ul li a:hover::after {
+        width: 100%;
+    }
+    .menu_nav ul li a:hover {
+        color: var(--Black);
+    }
+    .menu_nav .close {
+        padding: 0.25rem 1rem;
+        display: block;
+    }
+    
+    .cart_profile {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    
+    
+    .cart_profile .cart {
+        position: relative;
+        cursor: pointer;
+    }
+    .cart .cartCount {
+        right: -1rem;
+        bottom: 1rem;
+    }
+    .cart_profile .profile {
+        padding-left: 2rem;
+        cursor: pointer;
+    }
+
+    .cart_profile .profile {
+        padding-left: 3rem;
+        cursor: pointer;
+    }
+    /**
+   *! End of navigation bar styling
+   **/
+
+   /**
+   *! This represent the cart box when clicked on the cartIcon
+   **/
+    .cartBox {
+        width: 23rem;
+        height: 16rem;
+        border-radius: 0.5rem;
+        position: absolute;
+        left: -12rem;
+        top: 3.5rem;
+        display: none;
+    }
+    .cartBox .desc {
+        padding: 1rem 1rem;
+        font-weight: 600;
+        font-size: 1.25rem;
+        border-bottom: 0.15rem solid var(--lightGrayishBlue);
+    }
+    .emptyCart .message p {
+        padding: 2.5rem;
+        font-size: 1.25rem;
+        color: var(--darkGrayishBlue);
+        text-align: center;
+    }
+    
+    
+    .addedcart_message .cartItem {
+        display: block;
+        padding: 0.5rem 1rem;
+    }
+    .cartItem img[src*="images/image-product-1-thumbnail.jpg"] {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 0.20rem;
+    }
+    .cartItem img[src*="images/icon-delete.svg"] {
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+    }
+    .cartItem p {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 0 1.5rem;
+        color: var(--grayishblue);
+    }
+    .cartItem span {
+        font-weight: 600;
+        color: var(--Black);
+    }
+    .cartItem button {
+        border: none;
+        background-color: var(--Orange);
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        margin-top: 1.5rem;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        color: var(--White);
+    }
+    .profile img {
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 2px solid var(--Orange);
+        border-radius: 2rem;
+    }
+
+    
+    main {
+        width: 100%;
+    }
+
+
+    .container {
+        width: 1200px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0rem 0rem;
+        margin: 12.5rem 9rem;
+    }
+    
+    .gallarryContainer {
+       padding: 0;
+    }
+    .product_container,
+    .displayModal {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .product_container img {
+       border-radius: 1rem;
+       width: 28rem;
+       height: 28rem;
+    }
+    .mySlide img {
+        border-radius: 1rem;
+        width: 34.5rem;
+        height: 34.5rem;
+        padding-top: 0;
+    }
+    
+    .galleryModal {
+       position: absolute;
+       transform: translate(35%, -85.5%);
+       display: none;
+       z-index: 10;
+    }
+
+    
+    .prev_next {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .close {
+        position: relative;
+        left: 33rem;
+        display: block;
+        bottom: 46.25rem;
+        cursor: pointer;
+        transition: .4s ease-in;
+    }
+    
+    .preview, .next {
+        background-color: var(--White);
+        border-radius: 50px;
+        position: relative;
+        bottom: 30rem;
+        width: 50px;
+        height: 50px;
+        padding: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition:  .4s ease-in;
+    }
+    .preview {
+        left: -2rem;
+    }
+    .next {
+        right: -1.5rem;
+    }
+    .preview:hover {
+        background: var(--Orange);
+        transform: translatex(-0.25rem);
+    }
+    .next:hover {
+        background: var(--Orange);
+        transform: translatex(0.25rem);
+    }
+    
+    
+/**
+* ! This option Represent the image gallary
+**/
+    .myGallary {
+        cursor: pointer;
+        display: none;
+    }
+    .thumbnail_img_gallary {
+        display: flex;
+        justify-content:" center";
+        align-items: center;
+        flex-direction: row;
+        gap: 1.25rem;
+        padding: 1.5rem 0;
+    }
+    .rowContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 1.25rem;
+        padding: 1.5rem 0;
+    }
+    .thumbnail_img_gallary img,
+    .rowContainer img {
+        width: 6rem;
+        height: auto;
+        border-radius: 0.5rem;
+        transition: .4s ease-in-out;
+        cursor: pointer;
+    }
+    .thumbnail_img_gallary .active:active {
+        opacity: "1";
+    }
+    .thumbnail_img_gallary img:hover,
+    .rowContainer img:hover {
+        border: 2px solid var(--Orange);
+        scale: 1.1;
+    }
+/**
+* !End styling image gallary
+**/
+    
+    
+    .product_details {
+        margin: 3.5rem 4rem;
+        line-height: 1.5;
+    }
+    .product_details h1 {
+        color: var(--Orange);
+        font-size: 1.2rem;
+    }
+    .product_details h2 {
+        color: var(--Black);
+        font-size: 2.5rem;
+        padding-top: 0.5rem;
+        line-height: 1.3;
+    }
+    .product_details p {
+        color: var(--darkGrayishBlue);
+        font-size: 1.1rem;
+        padding-top: 2rem;
+    }
+    
+    .price {
+        padding-top: 1.2rem;
+    }
+    .price h3 {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        color: var(--Black);
+        font-weight: 700;
+    }
+    .price h3 span {
+        color: var(--Orange);
+        background-color: var(--PaleOrange);
+        font-size: 1rem;
+        padding: 0.10rem 0.5rem;
+        border-radius: 0.25rem;
+        margin-left: 0.5rem;
+    }
+    .price del {
+        color: var(--grayishblue);
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .buttons {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        gap: 1rem;
+        padding-top: 2rem;
+    }
+
+    .btn_increment_decrement {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--lightGrayishBlue);
+        padding: 1rem;
+        cursor: pointer;
+        width: 35%;
+        height: 50%;
+        border-radius: 0.5rem;
+    }
+    .quantity {
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 0 3rem;
+    }
+    .add_cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.5rem;
+        background-color: var(--Orange);
+        padding: 1rem 3rem;
+        width: 55%;
+        height: 50%;
+        cursor: pointer;
+    }
+
+    .add_cart p {
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 0 1rem;
+        color: var(--White);
+    }
+}
